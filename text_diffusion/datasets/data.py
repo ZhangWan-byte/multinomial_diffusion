@@ -26,10 +26,10 @@ def get_data(args):
 
     # Dataset
     if args.dataset == 'text8_256':
-        train = Text8Dataset(seq_len=256, split='train', download=True)
-        valid = Text8Dataset(seq_len=256, split='valid')
-        test = Text8Dataset(seq_len=256, split='test')
-        data_shape = (256,)
+        train = Text8Dataset(seq_len=128, split='train', download=True)
+        valid = Text8Dataset(seq_len=128, split='valid')
+        test = Text8Dataset(seq_len=128, split='test')
+        data_shape = (128,)
         num_classes = 27
     elif args.dataset == 'ptb_catnf':
         train = PennTreebankDataset(max_seq_len=288, split='train', preproc='catnf', download=True)

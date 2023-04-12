@@ -58,7 +58,7 @@ class LinearAttentionTransformerEmbedding(nn.Module):
                 self.transformer_blocks[-1].append(
                     LinearAttentionTransformer(
                         dim, 1, max_seq_len, heads = heads, dim_head = dim_head,
-                        causal = causal, one_kv_head = one_kv_head,
+                        causal = causal, #one_kv_head = one_kv_head,
                         ff_chunks = ff_chunks, ff_glu = ff_glu,
                         ff_dropout = ff_dropout,
                         attn_layer_dropout = attn_layer_dropout,

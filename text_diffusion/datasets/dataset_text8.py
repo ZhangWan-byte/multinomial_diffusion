@@ -17,7 +17,7 @@ class Text8Dataset(Dataset):
     (train, val, test) as in [1,2,3].
 
     The sets are then split into chunks of equal length as specified by `seq_len`.
-    The default is 256, corresponding to what was used in [1]. Other choices
+    The default is 128, corresponding to what was used in [1]. Other choices
     include 180, as [2] reports using.
 
     [1] Discrete Flows: Invertible Generative Models of Discrete Data
@@ -75,11 +75,17 @@ class Text8Dataset(Dataset):
 
         # Extract subset
         if split == 'train':
-            rawdata = rawdata[:90000000]
+            # rawdata = rawdata[:90000000]
+            rawdata = rawdata[:1000000]
+            # rawdata = rawdata[:20000000]
         elif split == 'valid':
-            rawdata = rawdata[90000000:95000000]
+            # rawdata = rawdata[90000000:95000000]
+            rawdata = rawdata[1000000:1100000]
+            # rawdata = rawdata[20000000:22000000]
         elif split == 'test':
-            rawdata = rawdata[95000000:]
+            # rawdata = rawdata[95000000:]
+            rawdata = rawdata[1100000:1200000]
+            # rawdata = rawdata[22000000:24000000]
 
         # Encode characters
         data = torch.tensor([self.vocab.stoi[s] for s in rawdata])
